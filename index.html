@@ -1,0 +1,122 @@
+<!--
+  Pokémon Battle Screen - HTML
+  A static HTML template for a Pokémon-style battle interface
+  featuring pixel art styling, responsive design, and classic GameBoy aesthetics.
+  Uses Bootstrap 5 for layout and responsive utilities.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Battle Screen</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="/src/css/modal.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <div id="stats-container" class="stats-container pixel-border pixel-shadow">
+        Wins: <span id="stat-wins">0</span>  |  Losses: <span id="stat-losses">0</span>
+      </div>
+  <div id="recaptcha-container"></div>
+
+    <!-- Battle Container -->
+    <div class="battle-container">
+        <!-- Opponent Area (Top-Right) -->
+        <div class="opponent-area">
+            <div class="opponent-stats">
+                <div class="pokemon-name-level">
+                    <span id="enemy-name">WILD RATTATA</span>
+                    <span class="level">Lv. <span id="enemy-level">12</span></span>
+                </div>
+                <div class="hp-bar-container">
+                    <div class="hp-label">HP</div>
+                    <div class="progress hp-bar" role="progressbar">
+                        <div class="progress-bar" id="enemy-hp-bar" style="width: 75%"></div>
+                    </div>
+                    <div class="hp-text" id="enemy-hp-text">15/20</div>
+                </div>
+            </div>
+            <div class="sprite-enemy" id="enemy-sprite">
+                <!-- Enemy sprite will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Player Area (Bottom-Left) -->
+        <div class="player-area">
+            <div class="player-stats">
+                <div class="trainer-pokemon-info">
+                    <span class="trainer-name" id="trainer-name">ASH</span>
+                    <span class="separator">–</span>
+                    <span class="pokemon-name" id="player-pokemon-name">PIKACHU</span>
+                    <span class="level">Lv. <span id="player-level">25</span></span>
+                </div>
+                <div class="hp-bar-container">
+                    <div class="hp-label">HP</div>
+                    <div class="progress hp-bar" role="progressbar">
+                        <div class="progress-bar" id="player-hp-bar" style="width: 90%"></div>
+                    </div>
+                    <div class="hp-text" id="player-hp-text">45/50</div>
+                </div>
+            </div>
+            <div class="sprite-player" id="player-sprite">
+                <!-- Player sprite will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Command Menu (Bottom-Right) -->
+        <div class="command-menu">
+            <div class="row g-2">
+                <div class="col-6">
+                    <button class="btn btn-move" id="move-btn-1">
+                        <span class="move-name">THUNDER SHOCK</span>
+                        <span class="move-pp">PP 30/30</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-move" id="move-btn-2">
+                        <span class="move-name">QUICK ATTACK</span>
+                        <span class="move-pp">PP 25/25</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-move" id="move-btn-3">
+                        <span class="move-name">THUNDER WAVE</span>
+                        <span class="move-pp">PP 20/20</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-move" id="move-btn-4">
+                        <span class="move-name">AGILITY</span>
+                        <span class="move-pp">PP 15/15</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Battle Background -->
+        <div class="battle-background"></div>
+    </div>
+
+    <!-- Bootstrap 5 JS (for any future functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="battle-modal" class="modal hidden">
+      <div class="modal-content pixel-border pixel-shadow">
+        <h2 id="modal-title">RESULT</h2>
+        <p id="modal-message">You won!</p>
+        <button id="modal-btn" class="btn pixel-button">OK</button>
+      </div>
+    </div>
+    <div id="audio-cache" class="hidden"></div>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html> 
